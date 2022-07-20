@@ -11,72 +11,23 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Read Share</title>
+	<style>
+        @import url('https://fonts.googleapis.com/css2?family=Cookie&family=Kavoon&family=Life+Savers:wght@700&family=Roboto:wght@100&display=swap');
+    </style>
 	<link rel="stylesheet" href="/css/style.css"> 
 </head>
 
 <body>
 
 <div class=container>
-	
-	<h1>Book Club</h1>
-	<p>A place for friends to share thoughts on books.<p>
-	
-	<div class="inner_box">
-		<form:form action="/register" method="post" modelAttribute="newUser">
-			<table>
-				<thead>
-					<tr>			
-						<td class=header colspan="2">Register</td>
-					</tr>
-				</thead>
-					<tr>
-						<td>
-							User Name:
-						</td>
-						<td>
-							<form:errors path="userName"/>
-							<form:input path="userName"/>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							Email:
-						</td>
-						<td>
-							<form:errors path="email"/>
-							<form:input path="email"/>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							Password:
-						</td>
-						<td>
-							<form:errors path="password"/>
-							<form:input path="password"/>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							Confirm password:
-						</td>
-						<td>
-							<form:errors path="confirm"/>
-							<form:input path="confirm"/>
-						</td>
-					</tr>
-				</table>
-			<div class="buttonrow">
-	        	<input type="submit" value="Submit"/>
-	       	</div>
-		</form:form>
+	<div class="top_box">
+		<img id="logo" alt="vinyl_record" src="/assets/vinyl.png">
+	</div>
+	<div class="bottom_box">
+	<h1>Vinyl Chum</h1>
+	<p>Log in to your library<p>
 		<form:form action="/login" method="post" modelAttribute="newLogin">
 			<table>
-				<thead>
-					<tr>			
-						<td class="header" colspan="2">Log In</td>
-					</tr>
-				</thead>
 					<tr>
 						<td>
 							Email:
@@ -101,12 +52,7 @@
 	       	</div>
 		</form:form>
 	</div>
-</div>
-
-<div>
-
-
-
+	<p class="register_line">New to Vinyl Chum? Register&nbsp;<a href="/registration">here.</a></p>
 </div>
 
 </body>
