@@ -10,35 +10,43 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Read Share</title>
+	<title>Vinyl Chum - your vinyl record library!</title>
 	<link rel="stylesheet" href="/css/style.css"> 
+	<style>
+        @import url('https://fonts.googleapis.com/css2?family=Cookie&family=Kavoon&family=Life+Savers:wght@700&family=Roboto:wght@100&display=swap');
+    </style>
 </head>
 
 <body>
 	<div class="container">
-		
-		<div class="top1">
-			<h1>Welcome, <c:out value="${user.userName}"/></h1>
+		<div class="main_box">
 			<a href="/logout">logout</a>
-		</div>
-		<div class="top2">
-			<p>Books from everyone shelves:</p>
-			<a href="/add">+ Add to my shelf</a>
+			<a href="/add">add a new record</a>
+			<h1>Welcome, <c:out value="${user.userName}"/>!</h1>
+			<p>Vinyl records on your shelf:</p>
 		</div>
 		
-		<table class="index">
+		<table class="table2">
 			<tr>
 				<th>ID</th>
+				<th>Artist</th>
 				<th>Title</th>
-				<th>Author Name</th>
-				<th>Posted By</th>
+				<th>Released in</th>
+				<th>Label</th>
+				<th>Catalog no.:</th>
+				<th>UPC no.:</th>
 			</tr>
-			<c:forEach var="book" items="${books}">
+			<c:forEach var="vinyl" items="${vinyls}">
 				<tr>
-					<td><c:out value="${book.id}"/></td>
-					<td><a href="books/${book.id}"><c:out value="${book.title}"/></a></td>
-					<td><c:out value="${book.author}"/></td>
-					<td><c:out value="${book.user.userName}"/></td>
+					<td><c:out value="${vinyl.id}"/></td>
+					<td><c:out value="${vinyl.artist}"/></td>
+					<td><a href="vinyls/${vinyl.id}"><c:out value="${vinyl.title}"/></a></td>
+					<td><c:out value="${vinyl.year}"/></td>
+					<td><c:out value="${vinyl.label}"/></td>
+					<td><c:out value="${vinyl.cat_no}"/></td>
+					<td><c:out value="${vinyl.upc_no}"/></td>
+					<td><a href="/edit/${vinyl.id}">Edit</a></td>
+					<td><a href="/delete/${vinyl.id}">Remove</a></td>
 				</tr>
 			</c:forEach>
 		</table>

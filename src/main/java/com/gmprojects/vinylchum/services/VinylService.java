@@ -38,4 +38,9 @@ public class VinylService {
         }
     }
     
+    // deletes a record entry
+	public void deleteVinyl(Long id) {
+		vinylRepository.deleteById(id);
+	}
+    
 }

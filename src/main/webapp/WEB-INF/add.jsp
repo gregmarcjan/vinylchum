@@ -9,21 +9,31 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Book Share</title>
+<title>Vinyl Chum - add a new record to your collection</title>
 <link rel="stylesheet" href="/css/style.css"> 
+	<style>
+        @import url('https://fonts.googleapis.com/css2?family=Cookie&family=Kavoon&family=Life+Savers:wght@700&family=Roboto:wght@100&display=swap');
+    </style>
 </head>
 
 <body>
 
 <div class="container">
-	<div class="top1">
-		<h1>Add to Your Book Shelf!</h1>
+	<div class="main_box">
 		<a href="/main">Back to Shelves</a>
-	</div>
-	<div class="inner-box">
-		<form:form action="/books" modelAttribute="book" class="form" method="post">
-		<table>
+		<h1>Add to your collection:</h1>	
+		<form:form action="/vinyls" modelAttribute="vinyl" class="form" method="post">
+		<table class="table1">
 			<tr>
+				<td>
+					Artist:
+				</td>
+				<td>
+					<form:errors path="artist" class="error"/>
+					<form:input type="text" path="artist"/>
+				</td>
+			</tr>
+			 <tr>
 				<td>
 					Title:
 				</td>
@@ -31,23 +41,49 @@
 					<form:errors path="title" class="error"/>
 					<form:input type="text" path="title"/>
 				</td>
-			</tr>
-			 <tr>
-				<td>
-					Author:
-				</td>
-				<td>
-					<form:errors path="author" class="error"/>
-					<form:input type="text" path="author"/>
-				</td>
 				</tr>
 			<tr>
 				<td>
-					Thoughts:
+					Year:
 				</td>
 				<td>
-					<form:errors path="thoughts" class="error"/>
-					<form:textarea path="thoughts"/>
+					<form:errors path="year" class="error"/>
+					<form:input type="text" path="year"/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Label:
+				</td>
+				<td>
+					<form:errors path="label" class="error"/>
+					<form:input type="text" path="label"/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Catalog no.:
+				</td>
+				<td>
+					<form:errors path="cat_no" class="error"/>
+					<form:input type="text" path="cat_no"/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					UPC no.:
+				</td>
+				<td>
+					<form:errors path="upc_no" class="error"/>
+					<form:input type="text" path="upc_no"/>
+				</td>
+			<tr>
+				<td>
+					Notes:
+				</td>
+				<td>
+					<form:errors path="notes" class="error"/>
+					<form:textarea path="notes" rows="4" style="width: 100%;"/>
 				</td>
 			</tr>
 				<form:errors path="user" class="error"/>

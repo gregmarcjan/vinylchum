@@ -1,6 +1,7 @@
 package com.gmprojects.vinylchum.models;
 
 import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,7 +14,7 @@ import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="records")
@@ -28,12 +29,11 @@ public class Vinyl {
 	private String title;
 	@NotBlank(message="Label field cannot be empty")
 	private String label;
-	@NotBlank(message="Year of release field cannot be empty")
+	@NotNull(message="Year of release field cannot be empty")
 	private Long year;
 	@NotBlank(message="Catalogue number field cannot be empty")
 	private String cat_no;
-	@NotBlank(message="UPC number cannot be empty")
-	@Size(min = 11, max = 11, message="The UPC number must be 11 digits long.")
+	@NotNull(message="UPC number cannot be empty")
 	private Long upc_no;
 	@NotBlank(message="Notes field cannot be empty")
 	private String notes;

@@ -25,9 +25,20 @@
 	</div>
 	<div class="bottom_box">
 	<h1>Vinyl Chum</h1>
-	<p>Log in to your library<p>
-		<form:form action="/login" method="post" modelAttribute="newLogin">
+	<p>New user registration<p>
+				<form:form action="/register" method="post" modelAttribute="newUser">
 			<table class="table1">
+				<thead>
+				</thead>
+					<tr>
+						<td>
+							User Name:
+						</td>
+						<td>
+							<form:errors path="userName"/>
+							<form:input path="userName"/>
+						</td>
+					</tr>
 					<tr>
 						<td>
 							Email:
@@ -46,13 +57,22 @@
 							<form:input type="password" path="password"/>
 						</td>
 					</tr>
+					<tr>
+						<td>
+							Confirm password:
+						</td>
+						<td>
+							<form:errors path="confirm"/>
+							<form:input type="password" path="confirm"/>
+						</td>
+					</tr>
 				</table>
 			<div class="buttonrow">
 	        	<input type="submit" value="Submit"/>
 	       	</div>
 		</form:form>
 	</div>
-	<p class="register_line">New to Vinyl Chum? Register&nbsp;<a href="/registration">here.</a></p>
+	<p class="register_line">Already a user? Login&nbsp;<a href="/">here.</a></p>
 </div>
 
 </body>
