@@ -45,11 +45,14 @@ public class User {
     @Size(min=8, max=128, message="Confirm Password must be between 8 and 128 characters")
     private String confirm;
   
+    public int loginCount;
+    
     @Column(updatable=false)
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date createdAt;
+    @Column(updatable=true)
     @DateTimeFormat(pattern="yyyy-MM-dd")
-    private Date updatedAt;
+	public Date updatedAt;
     
     @OneToMany(mappedBy="user", cascade=CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Vinyl> vinyls;
@@ -58,7 +61,7 @@ public class User {
         
     }
     
-    public User(String userName, Date createdAt, Date updatedAt, List<Vinyl> vinyls) {
+    public User(String userName, Date createdAt, Date updatedAt, List<Vinyl> vinyls, int loginCount) {
         this.userName = userName;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
@@ -72,6 +75,7 @@ public class User {
 	public void setVinyls(List<Vinyl> vinyls) {
 		this.vinyls = vinyls;
 	}
+
 	
 	public Long getId() {
 		return id;
@@ -113,6 +117,8 @@ public class User {
 		this.confirm = confirm;
 	}
  
+	
+	
 	@PrePersist
 	protected void onCreate() {
 		 this.createdAt = new Date();

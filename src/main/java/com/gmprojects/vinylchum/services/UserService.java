@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 import com.gmprojects.vinylchum.models.LoginUser;
 import com.gmprojects.vinylchum.models.User;
+import com.gmprojects.vinylchum.models.Vinyl;
 import com.gmprojects.vinylchum.repositories.UserRepository;
     
 @Service
@@ -55,7 +56,6 @@ public class UserService {
     	}
     	
     	User user = potentialUser.get();
-    	
     	if(!BCrypt.checkpw(newLogin.getPassword(), user.getPassword())) {
     		result.rejectValue("password", "Matches", "Invalid password.");
     	}
@@ -85,6 +85,10 @@ public class UserService {
     	
     	return null;
     	
+    }
+    
+    public User updateUser(User user) {
+		return userRepo.save(user);
     }
     
 }
