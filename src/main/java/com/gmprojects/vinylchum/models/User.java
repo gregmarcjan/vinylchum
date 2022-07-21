@@ -1,8 +1,8 @@
 package com.gmprojects.vinylchum.models;
 import java.util.Date;
 import java.util.List;
-import com.gmprojects.vinylchum.models.Vinyl;
 
+import com.gmprojects.vinylchum.models.Vinyl;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -57,6 +57,13 @@ public class User {
     public User() {
         
     }
+    
+    public User(String userName, Date createdAt, Date updatedAt, List<Vinyl> vinyls) {
+        this.userName = userName;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.vinyls = vinyls;
+    }
 
 	public List<Vinyl> getVinyls() {
 		return vinyls;
@@ -65,7 +72,7 @@ public class User {
 	public void setVinyls(List<Vinyl> vinyls) {
 		this.vinyls = vinyls;
 	}
-
+	
 	public Long getId() {
 		return id;
 	}

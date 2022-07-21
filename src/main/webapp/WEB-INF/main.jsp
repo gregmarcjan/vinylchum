@@ -38,14 +38,14 @@
 			</tr>
 			<c:forEach var="vinyl" items="${user.vinyls}">
 				<tr>
-					<td><c:out value="${user.vinyl.artist}"/></td>
-					<td><a href="vinyls/${user.vinyl.id}"><c:out value="${user.vinyl.title}"/></a></td>
-					<td><c:out value="${user.vinyl.year}"/></td>
-					<td><c:out value="${user.vinyl.label}"/></td>
-					<td><c:out value="${user.vinyl.cat_no}"/></td>
-					<td><c:out value="${user.vinyl.upc_no}"/></td>
-					<td><a href="/edit/${user.vinyl.id}">Edit</a></td>
-					<td><a href="/delete/${user.vinyl.id}">Remove</a></td>
+					<td><c:out value="${vinyl.artist}"/></td>
+					<td><a href="vinyls/${vinyl.id}"><c:out value="${vinyl.title}"/></a></td>
+					<td><c:out value="${vinyl.year}"/></td>
+					<td><c:out value="${vinyl.label}"/></td>
+					<td><c:out value="${vinyl.cat_no}"/></td>
+					<td><c:out value="${vinyl.upc_no}"/></td>
+					<td><a href="/edit/${vinyl.id}">Edit</a></td>
+					<td><a href="/delete/${vinyl.id}">Remove</a></td>
 				</tr>
 			</c:forEach>
 		</table>
