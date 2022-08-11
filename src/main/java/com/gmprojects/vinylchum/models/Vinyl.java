@@ -23,19 +23,19 @@ public class Vinyl {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long Id;
-	@NotBlank(message="Title field cannot be empty")
+	@NotBlank(message="Artist field cannot be empty.")
 	private String artist;
-	@NotBlank(message="Author field cannot be empty")
+	@NotBlank(message="Title field cannot be empty.")
 	private String title;
-	@NotBlank(message="Label field cannot be empty")
+	@NotBlank(message="Label field cannot be empty.")
 	private String label;
-	@NotNull(message="Year of release field cannot be empty")
+	@NotNull(message="Year of release field cannot be empty.")
 	private Long year;
-	@NotBlank(message="Catalogue number field cannot be empty")
+	@NotBlank(message="Catalogue number field cannot be empty.")
 	private String cat_no;
-	@NotNull(message="UPC number cannot be empty")
+	@NotNull(message="UPC/barcode number cannot be empty.")
 	private Long upc_no;
-	@NotBlank(message="Notes field cannot be empty")
+	@NotBlank(message="Notes field cannot be empty.")
 	private String notes;
 
 	@Column(updatable=false)

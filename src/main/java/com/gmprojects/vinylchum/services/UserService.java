@@ -51,7 +51,7 @@ public class UserService {
     	// System.out.println(newLogin.getEmail());
     	
     	if (!potentialUser.isPresent()) {
-    		result.rejectValue("email", "Matches", "User not found.");
+    		result.rejectValue("email", "Matches", "User cannot be identified.");
     		return null;
     	}
     	

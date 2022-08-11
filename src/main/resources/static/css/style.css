@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+/* GLOBAL/RESET */
+
 * {
     margin: 0 auto;
     padding: 0;
@@ -11,39 +13,94 @@ body {
     font-family: 'Roboto', sans-serif;
     display: flex;
 	justify-content: center;
+	align-items: center;	
+}
+
+.error-input {
+    border: 2px dashed black;
+    margin-left: 1px;
+}
+
+.error-messages {
+    color: #b94a48;
+    background: white;
+    display: block;
+    padding: 10px;
+    margin-bottom: 5px;
+    overflow-x: auto;
+    font-size: 0.7rem;
+    border: 2px dashed black; 
+}
+
+/* MAIN CONTAINER SETTINGS */
+
+div.container {
+	width: fit-content;
+	margin-top: 5vh;
+}
+
+div.container h1 {
+	display: flex;
+	justify-content: center;
 	align-items: center;
-	
+	font-size: 2.3rem;
+    font-family: 'Life Savers', cursive;
+	padding: 10px;
+	color: white;
+}
+
+div.container p {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1rem;
+    font-family: 'Life Savers', cursive;
+	color: white;
+	padding-bottom: 10px;
+}
+
+div.container p.register_line {
+	padding-top: 5px;
+	width: fit-content;
+	color: #cc5b28;
+	font-size: 0.9rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+div.container a {
+	color: #cc5b28;
+	font-family: 'Life Savers', cursive;
+	font-size: 0.9rem;
+}
+
+/* INDEX AND REGISTRATION */
+
+div.index_logo {
+	padding-bottom: 3vh;
 }
 
 img#logo {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 150px;
-	padding-bottom: 20px;
+	width: 9rem;
 }
 
-div.container {
-	width: fit-content;
-	height: fit-content;
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%);
-}
-
-div.bottom_box {
+div.index_box {
 	
 	background-color: #cc5b28;
 	width: fit-content;
 	height: fit-content;
-	padding: 20px;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;   
+	padding: 3vh 2vh;
+    border-bottom-left-radius: 8%;
+    border-bottom-right-radius: 8%;
+    border-top-left-radius: 8%;
+    border-top-right-radius: 8%;   
 }
+
+/* MAIN PAGE */
 
 .table1 {
 	background-color: #cc5b28; 
@@ -92,42 +149,6 @@ div.bottom_box {
  	border-collapse:collapse;
 }
 
-div.container h1 {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-size: 2.3rem;
-    font-family: 'Life Savers', cursive;
-	padding: 10px;
-	color: white;
-}
-
-div.container p {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-size: 1rem;
-    font-family: 'Life Savers', cursive;
-	color: white;
-	padding-bottom: 10px;
-}
-
-div.container p.register_line {
-	padding-top: 5px;
-	width: fit-content;
-	color: #cc5b28;
-	font-size: 0.9rem;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-div.container a {
-	color: #cc5b28;
-	font-family: 'Life Savers', cursive;
-	font-size: 0.9rem;
-}
-
 .buttonrow {
  	width: inherit;
  	display: flex;
@@ -136,8 +157,10 @@ div.container a {
  	padding-bottom: 10px;
 }
 
+/* BUTTON SETTINGS */
+
 input[type=submit] {
-     width: 80px;
+     width: 5rem;
      color: black;
      background: #f6edc6;
      font-family: 'Life Savers', cursive;
@@ -145,6 +168,18 @@ input[type=submit] {
      padding: 5px 5px;
      border-color: black;
      box-shadow: 5px 5px black;
+}
+
+input[type=submit]:hover,
+input[type=submit]:focus {
+  opacity: 0.95;
+  outline: 0;
+}
+
+input[type=submit]:active {
+	box-shadow: none;
+  	position: relative;
+  	top: 0.125rem;
 }
 
 .form input[type="text"] {
