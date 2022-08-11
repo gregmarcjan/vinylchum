@@ -75,7 +75,7 @@ div.container a {
 	font-size: 0.9rem;
 }
 
-/* INDEX AND REGISTRATION */
+/* INDEX (LOGIN) AND REGISTRATION */
 
 div.index_logo {
 	padding-bottom: 3vh;
@@ -94,10 +94,10 @@ div.index_box {
 	width: fit-content;
 	height: fit-content;
 	padding: 3vh 2vh;
-    border-bottom-left-radius: 8%;
-    border-bottom-right-radius: 8%;
-    border-top-left-radius: 8%;
-    border-top-right-radius: 8%;   
+    border-bottom-left-radius: 0.8rem;
+    border-bottom-right-radius: 0.8rem;
+    border-top-left-radius: 0.8rem;
+    border-top-right-radius: 0.8rem; 
 }
 
 /* MAIN PAGE */
@@ -121,10 +121,10 @@ div.index_box {
     font-family: 'Life Savers', cursive; 
  	padding: 10px;
  	color: white;
- 	border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;  
+    border-bottom-left-radius: 0.8rem;
+    border-bottom-right-radius: 0.8rem;
+    border-top-left-radius: 0.8rem;
+    border-top-right-radius: 0.8rem;
     
 }
 
@@ -187,7 +187,7 @@ input[type=submit]:active {
  	padding-bottom: 10px;
 }
 
-/* Main site specific */
+/* MAIN SITE SPECIFIC */
 
 div.main_box {
 	
@@ -195,10 +195,10 @@ div.main_box {
 	width: fit-content;
 	height: fit-content;
 	padding: 20px;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
+    border-bottom-left-radius: 0.8rem;
+    border-bottom-right-radius: 0.8rem;
+    border-top-left-radius: 0.8rem;
+    border-top-right-radius: 0.8rem;
     margin-bottom: 20px;
 }
 

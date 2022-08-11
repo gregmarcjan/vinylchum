@@ -20,13 +20,17 @@
 <body>
 
 <div class=container>
-	<div class="top_box">
+	<div class="index_logo">
 		<img id="logo" alt="vinyl_record" src="/assets/vinyl.png">
 	</div>
-	<div class="bottom_box">
-	<h1>Vinyl Chum</h1>
-	<p>New user registration<p>
-				<form:form action="/register" method="post" modelAttribute="newUser">
+	<div class="index_box">
+		<h1>Vinyl Chum</h1>
+		<p>New user registration<p>
+			<form:form action="/register" method="post" modelAttribute="newUser">
+			<form:errors path="userName" cssClass="error-messages"/>
+			<form:errors path="email" cssClass="error-messages"/>
+			<form:errors path="password" cssClass="error-messages"/>
+			<form:errors path="confirm" cssClass="error-messages"/>
 			<table class="table1">
 				<thead>
 				</thead>
@@ -35,8 +39,7 @@
 							User Name:
 						</td>
 						<td>
-							<form:errors path="userName"/>
-							<form:input path="userName"/>
+							<form:input path="userName" cssErrorClass="error-input" />
 						</td>
 					</tr>
 					<tr>
@@ -44,8 +47,7 @@
 							Email:
 						</td>
 						<td>
-							<form:errors path="email"/>
-							<form:input path="email"/>
+							<form:input type="email" path="email" cssErrorClass="error-input" />
 						</td>
 					</tr>
 					<tr>
@@ -53,8 +55,7 @@
 							Password:
 						</td>
 						<td>
-							<form:errors path="password"/>
-							<form:input type="password" path="password"/>
+							<form:input type="password" path="password" cssErrorClass="error-input" />
 						</td>
 					</tr>
 					<tr>
@@ -62,8 +63,7 @@
 							Confirm password:
 						</td>
 						<td>
-							<form:errors path="confirm"/>
-							<form:input type="password" path="confirm"/>
+							<form:input type="password" path="confirm" cssErrorClass="error-input" />
 						</td>
 					</tr>
 				</table>

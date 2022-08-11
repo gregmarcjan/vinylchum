@@ -56,7 +56,7 @@ public String register(@Valid @ModelAttribute("newUser") User newUser, BindingRe
 	User user = users.register(newUser, result);
 	if(result.hasErrors()) {
 			model.addAttribute("newLogin", new LoginUser());
-		    return "index.jsp";
+		    return "register.jsp";
 	}
 		    session.setAttribute("userId", user.getId());
 		    return "redirect:/main";
