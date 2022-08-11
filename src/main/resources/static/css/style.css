@@ -149,14 +149,6 @@ div.index_box {
  	border-collapse:collapse;
 }
 
-.buttonrow {
- 	width: inherit;
- 	display: flex;
- 	justify-content: flex-end;
- 	padding-top: 10px;
- 	padding-bottom: 10px;
-}
-
 /* BUTTON SETTINGS */
 
 input[type=submit] {
@@ -186,6 +178,14 @@ input[type=submit]:active {
       width:100%;
       box-sizing:border-box;
     }
+    
+.buttonrow {
+ 	width: inherit;
+ 	display: flex;
+ 	justify-content: flex-end;
+ 	padding-top: 10px;
+ 	padding-bottom: 10px;
+}
 
 /* Main site specific */
 

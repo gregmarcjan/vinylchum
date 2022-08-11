@@ -23,43 +23,44 @@
 
 <div class="container">
 
-	<!-- LOGO CONTAINER -->
+	<!-- LOGO CONTAINER START -->
 
 	<div class="index_logo">
 		<img id="logo" alt="vinyl_record" src="/assets/vinyl.png">
 	</div>
 	
-	
+	<!-- DIALOG BOX CONTAINER Start -->
 	
 	<div class="index_box">
-	<h1>Vinyl Chum</h1>
-	<p>Log in to your library<p>
+		<h1>Vinyl Chum</h1>
+		<p>Log in to your library<p>
 		<form:form action="/login" method="post" modelAttribute="newLogin">
-			<form:errors path="email" cssClass="error-messages"/>
-			<form:errors path="password" cssClass="error-messages"/>
-			<table class="table1">
-					<tr>
-						<td>
-							Email:
-						</td>
-						<td>
-<%-- 						<form:errors path="email"/> --%>
-							<form:input path="email" type="email" cssErrorClass="error-input" />
-						</td>
-					</tr>
-					<tr>
-						<td>
-							Password:
-						</td>
-						<td>
-<%-- 						<form:errors path="password"/> --%>
-							<form:input type="password" path="password" cssErrorClass="error-input" />
-						</td>
-					</tr>
-				</table>
-			<div class="buttonrow">
-	        	<input type="submit" value="Submit"/>
-	       	</div>
+		<form:errors path="email" cssClass="error-messages"/>
+		<form:errors path="password" cssClass="error-messages"/>
+		<table class="table1">
+			<tr>
+				<td>
+					Email:
+				</td>
+				<td>
+					<form:input path="email" type="email" cssErrorClass="error-input" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Password:
+				</td>
+				<td>
+					<form:input type="password" path="password" cssErrorClass="error-input" />
+				</td>
+			</tr>
+		</table>
+			
+		<!-- BUTTON ROW CONTAINER -->
+			
+		<div class="buttonrow">
+	        <input type="submit" value="Submit"/>
+	    </div>
 		</form:form>
 	</div>
 	<p class="register_line">New to Vinyl Chum? Register&nbsp;<a href="/registration">here.</a></p>
