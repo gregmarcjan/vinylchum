@@ -37,30 +37,30 @@
 		<form:form action="/login" method="post" modelAttribute="newLogin">
 		<form:errors path="email" cssClass="error-messages"/>
 		<form:errors path="password" cssClass="error-messages"/>
-		<table class="table1">
-			<tr>
-				<td>
-					Email:
-				</td>
-				<td>
-					<form:input path="email" type="email" cssErrorClass="error-input" />
-				</td>
-			</tr>
-			<tr>
-				<td>
-					Password:
-				</td>
-				<td>
-					<form:input type="password" path="password" cssErrorClass="error-input" />
-				</td>
-			</tr>
-		</table>
-			
-		<!-- BUTTON ROW CONTAINER -->
-			
-		<div class="buttonrow">
-	        <input type="submit" value="Submit"/>
-	    </div>
+			<table class="table1">
+				<tr>
+					<td>
+						Email:
+					</td>
+					<td>
+						<form:input path="email" type="email" cssErrorClass="error-input" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Password:
+					</td>
+					<td>
+						<form:input type="password" path="password" cssErrorClass="error-input" />
+					</td>
+				</tr>
+			</table>
+				
+			<!-- BUTTON ROW CONTAINER -->
+				
+			<div class="buttonrow">
+		        <input type="submit" value="Submit"/>
+		    </div>
 		</form:form>
 	</div>
 	<p class="register_line">New to Vinyl Chum? Register&nbsp;<a href="/registration">here.</a></p>
