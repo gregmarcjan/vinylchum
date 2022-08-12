@@ -125,7 +125,6 @@ div.index_box {
     border-bottom-right-radius: 0.8rem;
     border-top-left-radius: 0.8rem;
     border-top-right-radius: 0.8rem;
-    
 }
 
 .table2 th {
@@ -147,6 +146,10 @@ div.index_box {
  	padding: 10px;
  	color: #cc5b28;
  	border-collapse:collapse;
+}
+
+.table2 img {
+	width: 1.3rem;
 }
 
 /* BUTTON SETTINGS */

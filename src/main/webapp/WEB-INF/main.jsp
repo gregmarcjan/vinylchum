@@ -28,13 +28,12 @@
 		
 		<table class="table2">
 			<tr>
-				<th>ID</th>
 				<th>Artist</th>
 				<th>Title</th>
-				<th>Released in</th>
+				<th>Year</th>
 				<th>Label</th>
-				<th>Catalog no.:</th>
-				<th>UPC no.:</th>
+				<th>Cat No.</th>
+				<th>UPC No.</th>
 			</tr>
 			<c:forEach var="vinyl" items="${user.vinyls}">
 				<tr>
@@ -44,8 +43,8 @@
 					<td><c:out value="${vinyl.label}"/></td>
 					<td><c:out value="${vinyl.cat_no}"/></td>
 					<td><c:out value="${vinyl.upc_no}"/></td>
-					<td><a href="/edit/${vinyl.id}">Edit</a></td>
-					<td><a href="/delete/${vinyl.id}">Remove</a></td>
+					<td><a href="/edit/${vinyl.id}"><img alt="edit" src="/assets/pencil.png"></a></td>
+					<td><a href="/delete/${vinyl.id}"><img alt="delete" src="/assets/delete.png"></a></td>
 				</tr>
 			</c:forEach>
 		</table>
