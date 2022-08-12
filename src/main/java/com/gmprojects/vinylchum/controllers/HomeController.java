@@ -19,6 +19,7 @@ import com.gmprojects.vinylchum.models.User;
 import com.gmprojects.vinylchum.models.Vinyl;
 import com.gmprojects.vinylchum.services.UserService;
 import com.gmprojects.vinylchum.services.VinylService;
+import javax.swing.JOptionPane;
 
 @Controller 
 public class HomeController {

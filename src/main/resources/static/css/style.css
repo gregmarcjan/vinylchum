@@ -37,6 +37,7 @@ body {
 div.container {
 	width: fit-content;
 	margin-top: 5vh;
+	max-width: 850px;
 }
 
 div.container h1 {
@@ -89,7 +90,6 @@ img#logo {
 }
 
 div.index_box {
-	
 	background-color: #cc5b28;
 	width: fit-content;
 	height: fit-content;
@@ -101,6 +101,10 @@ div.index_box {
 }
 
 /* MAIN PAGE */
+
+div.main_nav {
+	padding-bottom: 1.5rem;
+}
 
 .table1 {
 	background-color: #cc5b28; 
@@ -114,9 +118,11 @@ div.index_box {
     font-family: 'Life Savers', cursive; 
  	padding: 10px;
  	color: white;
+ 	max-width: 600px;
 }
 
 .table2 {
+	max-width: 600px;
 	background-color: #cc5b28; 
     font-family: 'Life Savers', cursive; 
  	padding: 10px;
@@ -136,8 +142,16 @@ div.index_box {
 
 .table2 td {
     font-family: 'Life Savers', cursive; 
+    font-size: 0.8rem;
  	padding: 10px;
  	border-collapse:collapse;
+ 	border-bottom-left-radius: 0.8rem;
+    border-bottom-right-radius: 0.8rem;
+    border-top-left-radius: 0.8rem;
+    border-top-right-radius: 0.8rem;
+    text-overflow:ellipsis;
+	overflow:hidden;
+	white-space:nowrap;
 }
 
 .table2 tr {
