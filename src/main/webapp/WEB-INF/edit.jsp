@@ -19,7 +19,7 @@
 <body>
 
 <div class=container>
-	<div class="bottom_box">
+	<div class="main_box">
 	<h1>Vinyl Chum</h1>
 	<p>Edit this entry:<p>
 				<form:form action="/edit/${vinyl.id}" method="post" modelAttribute="vinyl">
@@ -93,6 +93,7 @@
 				</table>
 			<div class="buttonrow">
 	        	<input type="submit" value="Submit"/>
+	        	<form:input type="hidden" path="user" value="${user.id}"/>
 	       	</div>
 		</form:form>
 	</div>

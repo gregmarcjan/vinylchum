@@ -111,8 +111,10 @@ public String create(@Valid @ModelAttribute("vinyl") Vinyl vinyl, BindingResult 
 // EDIT ROUTE
 
 @GetMapping("/edit/{id}")
-public String edit(@PathVariable("id") Long id, Model model) {
+public String edit(@PathVariable("id") Long id, Model model, HttpSession session) {
 	
+	User user = users.findById((Long)session.getAttribute("userId"));
+	model.addAttribute("user", user);
 	model.addAttribute("vinyl", vinyls.findVinyl(id));
 	model.addAttribute("vinyls", vinyls.allVinyls());
 	
@@ -126,9 +128,7 @@ public String update(@PathVariable("id") Long id, @Valid @ModelAttribute("vinyl"
 		System.out.println(result);
 		return "edit.jsp";
 	}
-	
 	vinyls.updateVinyl(vinyl);
-	
 	return "redirect:/main";
 }
 
