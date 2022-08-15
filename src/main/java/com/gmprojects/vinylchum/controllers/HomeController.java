@@ -152,8 +152,12 @@ public String details(@PathVariable("id") Long id, Model model, HttpSession sess
 	model.addAttribute("vinyl", vinyls.findVinyl(id));
 	model.addAttribute("vinyls", vinyls.allVinyls());
 	
-	String apiURL = "";
+	String apiURL= "";
+	String apiURL1 = "";
+	String apiURL2 = "";
+	String apiURL3 = "";
 	Vinyl vin = vinyls.findVinyl(id);
+	
 	System.out.println(id);
 	System.out.println(vin.getId());
 	System.out.println(vin.getArtist());
@@ -164,11 +168,15 @@ public String details(@PathVariable("id") Long id, Model model, HttpSession sess
 	System.out.println(vin.getCat_no());
 	System.out.println(vin.getNotes());
 	
+
+	
+	
+	
 if (vin.getUpc_no().isEmpty() != true) {
 	apiURL=String.format("https://api.discogs.com//database/search?barcode=%s&format=vinyl&format=LP&token=ddnMsmSjfIVuBtdnGazooDWCaGHRglHgAlvBaJFv", URLEncoder.encode(vin.getUpc_no()));
+	
 	System.out.println("160");
 	System.out.println(apiURL);
-	
 	System.out.println(vin.toString());
 	System.out.println(vin.getUpc_no());
 	System.out.println(URLEncoder.encode(vin.getUpc_no()));
@@ -176,14 +184,27 @@ if (vin.getUpc_no().isEmpty() != true) {
 } 
 	else if (vin.getCat_no().isEmpty() == false) {
 	apiURL=String.format("https://api.discogs.com//database/search?catno=%s&format=vinyl&format=LP&token=ddnMsmSjfIVuBtdnGazooDWCaGHRglHgAlvBaJFv", URLEncoder.encode(vin.getCat_no()));
+	
 	System.out.println("163");
+	System.out.println(apiURL);
 	System.out.println(vin.getCat_no());
 	System.out.println(URLEncoder.encode(vin.getCat_no()));
+	
 	} 
-	else {
-		apiURL=String.format("https://api.discogs.com//database/search?artist=%s&title=%s&format=vinyl&format=LP&token=ddnMsmSjfIVuBtdnGazooDWCaGHRglHgAlvBaJFv", URLEncoder.encode(vin.getArtist()), URLEncoder.encode(vin.getTitle()));
-		System.out.println("166");
+		else {
+			apiURL=String.format("https://api.discogs.com//database/search?artist=%s&title=%s&format=vinyl&format=LP&token=ddnMsmSjfIVuBtdnGazooDWCaGHRglHgAlvBaJFv", URLEncoder.encode(vin.getArtist()), URLEncoder.encode(vin.getTitle()));
+			System.out.println(apiURL);
+			System.out.println("166");
 }
+
+// if (apiURL1) {
+	
+// } else if () {
+	
+// } else () {
+	
+// }
+
 	
 //String apiURL="https://api.discogs.com//database/search?q=0081227957841&token=ddnMsmSjfIVuBtdnGazooDWCaGHRglHgAlvBaJFv";
 HttpResponse<com.mashape.unirest.http.JsonNode> jsonResponse=Unirest.get(apiURL).asJson();
@@ -195,6 +216,8 @@ ArrayList <JSONObject> results = new ArrayList <JSONObject>();
 for (int i = 0; i<jArray.length(); i++) {
 	results.add(jArray.getJSONObject(i));
 	}
+
+System.out.println(results);
 
 String cover_image = "";
 if (results.size() == 0) {
