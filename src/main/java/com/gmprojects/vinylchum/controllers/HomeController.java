@@ -1,11 +1,13 @@
 package com.gmprojects.vinylchum.controllers;
 
-import java.awt.GraphicsEnvironment;
+import java.util.ArrayList;
 
 // IMPORTS
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +23,12 @@ import com.gmprojects.vinylchum.models.User;
 import com.gmprojects.vinylchum.models.Vinyl;
 import com.gmprojects.vinylchum.services.UserService;
 import com.gmprojects.vinylchum.services.VinylService;
+import com.mashape.unirest.http.HttpResponse;
+import com.mashape.unirest.http.Unirest;
+import com.mashape.unirest.http.exceptions.UnirestException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.io.UnsupportedEncodingException;
 
 @Controller 
 public class HomeController {
@@ -137,20 +145,75 @@ public String update(@PathVariable("id") Long id, @Valid @ModelAttribute("vinyl"
 // DETAILS ROUTE
 
 @GetMapping("/vinyls/{id}")
-public String details(@PathVariable("id") Long id, Model model, HttpSession session) {
+public String details(@PathVariable("id") Long id, Model model, HttpSession session) throws UnirestException {
 	
 	User user = users.findById((Long)session.getAttribute("userId"));
 	model.addAttribute("user", user);
 	model.addAttribute("vinyl", vinyls.findVinyl(id));
 	model.addAttribute("vinyls", vinyls.allVinyls());
 	
+	String apiURL = "";
+	Vinyl vin = vinyls.findVinyl(id);
+	System.out.println(id);
+	System.out.println(vin.getId());
+	System.out.println(vin.getArtist());
+	System.out.println(vin.getTitle());
+	System.out.println(vin.getYear());
+	System.out.println(vin.getLabel());
+	System.out.println(vin.getUpc_no());
+	System.out.println(vin.getCat_no());
+	System.out.println(vin.getNotes());
+	
+if (vin.getUpc_no().isEmpty() != true) {
+	apiURL=String.format("https://api.discogs.com//database/search?barcode=%s&format=vinyl&format=LP&token=ddnMsmSjfIVuBtdnGazooDWCaGHRglHgAlvBaJFv", URLEncoder.encode(vin.getUpc_no()));
+	System.out.println("160");
+	System.out.println(apiURL);
+	
+	System.out.println(vin.toString());
+	System.out.println(vin.getUpc_no());
+	System.out.println(URLEncoder.encode(vin.getUpc_no()));
+	System.out.println(vin.getUpc_no().length());
+} 
+	else if (vin.getCat_no().isEmpty() == false) {
+	apiURL=String.format("https://api.discogs.com//database/search?catno=%s&format=vinyl&format=LP&token=ddnMsmSjfIVuBtdnGazooDWCaGHRglHgAlvBaJFv", URLEncoder.encode(vin.getCat_no()));
+	System.out.println("163");
+	System.out.println(vin.getCat_no());
+	System.out.println(URLEncoder.encode(vin.getCat_no()));
+	} 
+	else {
+		apiURL=String.format("https://api.discogs.com//database/search?artist=%s&title=%s&format=vinyl&format=LP&token=ddnMsmSjfIVuBtdnGazooDWCaGHRglHgAlvBaJFv", URLEncoder.encode(vin.getArtist()), URLEncoder.encode(vin.getTitle()));
+		System.out.println("166");
+}
+	
+//String apiURL="https://api.discogs.com//database/search?q=0081227957841&token=ddnMsmSjfIVuBtdnGazooDWCaGHRglHgAlvBaJFv";
+HttpResponse<com.mashape.unirest.http.JsonNode> jsonResponse=Unirest.get(apiURL).asJson();
+JSONObject obj=jsonResponse.getBody().getObject();
+
+JSONArray jArray=obj.getJSONArray("results");
+ArrayList <JSONObject> results = new ArrayList <JSONObject>();
+
+for (int i = 0; i<jArray.length(); i++) {
+	results.add(jArray.getJSONObject(i));
+	}
+
+String cover_image = "";
+if (results.size() == 0) {
+	cover_image = "/assets/vinyl.png";
+} else {
+	cover_image = results.get(0).getString("cover_image");
+}
+model.addAttribute("cover_image", cover_image);
+
 	return "details.jsp";
 }
 
 // DELETION ROUTE
 
 @RequestMapping(value="/delete/{id}")
-public String destroy(@PathVariable("id") Long id) {
+public String destroy(@PathVariable("id") Long id, HttpSession session) {
+	if (session.getAttribute("userId") == null) {
+		return "redirect:/";
+		}
 		vinyls.deleteVinyl(id);
 		return "redirect:/main";
 

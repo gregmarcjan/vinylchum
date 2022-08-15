@@ -31,11 +31,8 @@ public class Vinyl {
 	private String label;
 	@NotNull(message="Year of release field cannot be empty.")
 	private Long year;
-	@NotBlank(message="Catalogue number field cannot be empty.")
 	private String cat_no;
-	@NotNull(message="UPC/barcode number cannot be empty.")
-	private Long upc_no;
-	@NotBlank(message="Notes field cannot be empty.")
+	private String upc_no;
 	private String notes;
 
 	@Column(updatable=false)
@@ -101,11 +98,11 @@ public void setCat_no(String cat_no) {
 	this.cat_no = cat_no;
 }
 
-public Long getUpc_no() {
+public String getUpc_no() {
 	return upc_no;
 }
 
-public void setUpc_no(Long upc_no) {
+public void setUpc_no(String upc_no) {
 	this.upc_no = upc_no;
 }
 

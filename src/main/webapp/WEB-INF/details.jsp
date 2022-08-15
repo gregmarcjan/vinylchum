@@ -20,7 +20,7 @@
 <div class=container>
 	<div class="main_box">
 		<div class="cover_art">
-			<img id="logo" alt="vinyl_record" src="/assets/vinyl.png">
+			<img id="logo" alt="vinyl_record" src="${cover_image}">
 		</div>
 	<h1><c:out value="${vinyl.artist}"></c:out></h1>
 	<p>"<c:out value="${vinyl.title}"></c:out>"<p>
@@ -70,6 +70,7 @@
 				</table>
 			<div class="buttonrow">
 				<button onclick="window.location.href='/edit/${vinyl.id}';">Edit</button>
+				<button id="delete" onclick="window.location.href='/delete/${vinyl.id}';">Remove</button>
 				<button onclick="window.location.href='/main';">Return</button>
 	       	</div>
 	</div>

@@ -68,7 +68,11 @@
         	<artifactId>hibernate-validator</artifactId>
         	<version>6.1.6.Final</version>
     	</dependency>
-    	
+    	<dependency>
+    		<groupId>com.mashape.unirest</groupId>
+    		<artifactId>unirest-java</artifactId>
+    		<version>1.4.9</version>
+		</dependency>
     </dependencies>
 	<build>
 		<plugins>
