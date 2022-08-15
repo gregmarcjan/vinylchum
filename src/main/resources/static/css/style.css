@@ -37,7 +37,7 @@ body {
 div.container {
 	width: fit-content;
 	margin-top: 5vh;
-	max-width: 850px;
+	max-width: 900px;
 }
 
 div.container h1 {
@@ -57,7 +57,7 @@ div.container p {
 	font-size: 1rem;
     font-family: 'Life Savers', cursive;
 	color: white;
-	padding-bottom: 10px;
+	padding-bottom: 5px;
 }
 
 div.container p.register_line {
@@ -100,6 +100,19 @@ div.index_box {
     border-top-right-radius: 0.8rem; 
 }
 
+/* COVER ART */
+
+div.cover_art {
+	padding-bottom: 0.5vh;
+}
+
+img#cover {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 12.5rem;
+}
+
 /* MAIN PAGE */
 
 div.main_nav {
@@ -117,6 +130,7 @@ div.main_nav {
 	background-color: #cc5b28; 
     font-family: 'Life Savers', cursive; 
  	padding: 10px;
+ 	padding-bottom: 5px;
  	color: white;
  	max-width: 600px;
 }
@@ -168,6 +182,29 @@ div.main_nav {
 
 /* BUTTON SETTINGS */
 
+button {
+	 width: 5rem;
+     color: black;
+     background: #f6edc6;
+     font-family: 'Life Savers', cursive;
+     font-size: 16px;
+     padding: 5px 5px;
+     border-color: black;
+     box-shadow: 5px 5px black;
+}
+
+button:hover,
+button:focus {
+  opacity: 0.95;
+  outline: 0;
+}
+
+button:active {
+	box-shadow: none;
+  	position: relative;
+  	top: 0.125rem;
+}
+
 input[type=submit] {
      width: 5rem;
      color: black;
@@ -198,8 +235,10 @@ input[type=submit]:active {
     
 .buttonrow {
  	width: inherit;
- 	display: flex;
- 	justify-content: flex-end;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
  	padding-top: 10px;
  	padding-bottom: 10px;
 }

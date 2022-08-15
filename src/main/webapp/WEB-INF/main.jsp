@@ -44,26 +44,14 @@
 					<td style="max-width: 150px"><c:out value="${vinyl.label}"/></td>
 					<td style="max-width: 100px"><c:out value="${vinyl.cat_no}"/></td>
 					<td style="max-width: 50px"><a href="/edit/${vinyl.id}"><img alt="edit" title="Edit" src="/assets/pencil.png"></a></td>
-					<td style="max-width: 50px"><img alt="remove" onclick="deletePrompt()" role="button" title="Remove" src="/assets/delete.png"></td>
+					<td style="max-width: 50px"><a href="/delete/${vinyl.id}" onclick="return confirm('${user.userName}, are you sure you want to delete ${vinyl.title}?')"><img alt="remove" role="button" title="Remove" src="/assets/delete.png"></a></td>
 				</tr>
 			</c:forEach>
 		</table>
 	</div>
 	
 <script>
-function deletePrompt() {
-	if (confirm("Press a button!") == true) {
-	    
-	  } else {
-	    
-	  }
-}
 
-function switcheroo(path) {
-    document.getElementById('frame').src = path;
-    }
-    
-    
 </script>
 	
 </body>

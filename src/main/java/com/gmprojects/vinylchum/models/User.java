@@ -2,7 +2,6 @@ package com.gmprojects.vinylchum.models;
 import java.util.Date;
 import java.util.List;
 
-import com.gmprojects.vinylchum.models.Vinyl;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;

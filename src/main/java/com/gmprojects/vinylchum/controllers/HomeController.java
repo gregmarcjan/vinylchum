@@ -1,5 +1,7 @@
 package com.gmprojects.vinylchum.controllers;
 
+import java.awt.GraphicsEnvironment;
+
 // IMPORTS
 
 import javax.servlet.http.HttpSession;
@@ -19,12 +21,12 @@ import com.gmprojects.vinylchum.models.User;
 import com.gmprojects.vinylchum.models.Vinyl;
 import com.gmprojects.vinylchum.services.UserService;
 import com.gmprojects.vinylchum.services.VinylService;
-import javax.swing.JOptionPane;
 
 @Controller 
 public class HomeController {
 
 // Connecting my vinyl records business logic
+	
 	
 @Autowired
 private VinylService vinyls;
@@ -132,12 +134,26 @@ public String update(@PathVariable("id") Long id, @Valid @ModelAttribute("vinyl"
 	return "redirect:/main";
 }
 
+// DETAILS ROUTE
+
+@GetMapping("/vinyls/{id}")
+public String details(@PathVariable("id") Long id, Model model, HttpSession session) {
+	
+	User user = users.findById((Long)session.getAttribute("userId"));
+	model.addAttribute("user", user);
+	model.addAttribute("vinyl", vinyls.findVinyl(id));
+	model.addAttribute("vinyls", vinyls.allVinyls());
+	
+	return "details.jsp";
+}
+
 // DELETION ROUTE
 
 @RequestMapping(value="/delete/{id}")
 public String destroy(@PathVariable("id") Long id) {
-	vinyls.deleteVinyl(id);
-	return "redirect:/main";
+		vinyls.deleteVinyl(id);
+		return "redirect:/main";
+
 }
 
 // LOGOUT ROUTE

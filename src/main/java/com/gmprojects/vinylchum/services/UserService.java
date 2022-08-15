@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 import com.gmprojects.vinylchum.models.LoginUser;
 import com.gmprojects.vinylchum.models.User;
-import com.gmprojects.vinylchum.models.Vinyl;
 import com.gmprojects.vinylchum.repositories.UserRepository;
     
 @Service
