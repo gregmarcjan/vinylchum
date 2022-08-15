@@ -38,10 +38,10 @@
 			</tr>
 			<c:forEach var="vinyl" items="${user.vinyls}">
 				<tr>
-					<td style="max-width: 200px"><c:out value="${vinyl.artist}"/></td>
-					<td style="max-width: 200px"><a style="font-size:0.8rem" href="vinyls/${vinyl.id}"><c:out value="${vinyl.title}"/></a></td>
-					<td style="max-width: 75px"><c:out value="${vinyl.year}"/></td>
-					<td style="max-width: 150px"><c:out value="${vinyl.label}"/></td>
+					<td style="max-width: 275px"><c:out value="${vinyl.artist}"/></td>
+					<td style="max-width: 275px"><a style="font-size:1rem" href="vinyls/${vinyl.id}"><c:out value="${vinyl.title}"/></a></td>
+					<td style="max-width: 100px"><c:out value="${vinyl.year}"/></td>
+					<td style="max-width: 100px"><c:out value="${vinyl.label}"/></td>
 					<td style="max-width: 100px"><c:out value="${vinyl.cat_no}"/></td>
 					<td style="max-width: 50px"><a href="/edit/${vinyl.id}"><img alt="edit" title="Edit" src="/assets/pencil.png"></a></td>
 					<td style="max-width: 50px"><a href="/delete/${vinyl.id}" onclick="return confirm('${user.userName}, are you sure you want to delete ${vinyl.title}?')"><img alt="remove" role="button" title="Remove" src="/assets/delete.png"></a></td>

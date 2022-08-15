@@ -14,7 +14,6 @@ import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="records")
@@ -27,9 +26,7 @@ public class Vinyl {
 	private String artist;
 	@NotBlank(message="Title field cannot be empty.")
 	private String title;
-	@NotBlank(message="Label field cannot be empty.")
 	private String label;
-	@NotNull(message="Year of release field cannot be empty.")
 	private Long year;
 	private String cat_no;
 	private String upc_no;

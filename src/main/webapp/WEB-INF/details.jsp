@@ -20,18 +20,18 @@
 <div class=container>
 	<div class="main_box">
 		<div class="cover_art">
-			<img id="logo" alt="vinyl_record" src="${cover_image}">
+			<img id="cover" alt="vinyl_record" src="${cover_image}" onclick="window.open('${cover_image}', '_blank')">
 		</div>
-	<h1><c:out value="${vinyl.artist}"></c:out></h1>
-	<p>"<c:out value="${vinyl.title}"></c:out>"<p>
-			<table class="table1 details">
+	<h1 style="text-align:center; max-width: 350px;"><c:out value="${vinyl.artist}"></c:out></h1>
+	<p style="font-size: 1.5rem; text-align:center; max-width: 600px;">"<c:out value="${vinyl.title}"></c:out>"<p>
+			<table class="table1">
 				<thead>
 				</thead>
 					<tr>
 						<td>
 							Year
 						</td>
-						<td>
+						<td style="text-align:left;">
 							<c:out value="${vinyl.year}"></c:out>
 						</td>
 					</tr>
@@ -39,7 +39,7 @@
 						<td>
 							Label
 						</td>
-						<td>
+						<td style="text-align:left;">
 							<c:out value="${vinyl.label}"></c:out>
 						</td>
 					</tr>
@@ -47,7 +47,7 @@
 						<td>
 							Catalog no.:
 						</td>
-						<td>
+						<td style="text-align:left;">
 							<c:out value="${vinyl.cat_no}"></c:out>
 						</td>
 					</tr>
@@ -55,7 +55,7 @@
 						<td>
 							UPC no.:
 						</td>
-						<td>
+						<td style="text-align:left;">
 							<c:out value="${vinyl.upc_no}"></c:out>
 						</td>
 					</tr>
@@ -63,7 +63,7 @@
 						<td>
 							Notes:
 						</td>
-						<td>
+						<td style="text-align:left;">
 							<c:out value="${vinyl.notes}"></c:out>
 						</td>
 					</tr>
