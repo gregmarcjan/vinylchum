@@ -37,4 +37,6 @@ https://www.discogs.com/settings/developers
 
 3) Add your key to the API_Key variable in the HomeController.java
 
+4) Create 'users' and 'records' schemas in MySQL
+
 You are all set!
