@@ -8,7 +8,7 @@ Vinyl Chum is a web app I have designed for storing information about personal v
 
 - User login & registration w. bCrypt for security
 - Adding, removing and modifying entries in the collection
-- Automatic matching and fetching of cover art via Discogs.com API
+- Automatic matching and fetching of cover art via Discogs.com API based on entered information
 - External search using queries sent to Discogs.com
 
 
@@ -21,6 +21,7 @@ Coming in Q4 of 2022:
 - Internal collection search/parsing and pagination
 - Internal social network facilitating communication between users
 - OAuth implentation
+
 ## Contributing
 
 Contributions are always welcome!
