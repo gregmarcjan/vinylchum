@@ -45,6 +45,10 @@ private VinylService vinyls;
 	
 @Autowired
 private UserService users;
+
+// Your API Key goes here as a String - obtain yours from discogs.com
+
+String API_Key = "";
 		
 // HOME
 		
@@ -169,7 +173,7 @@ public String details(@PathVariable("id") Long id, Model model, HttpSession sess
 	
 	
 if (vin.getUpc_no().isEmpty() != true) {
-	apiURL=String.format("https://api.discogs.com//database/search?barcode=%s&format=vinyl&format=LP&token=ddnMsmSjfIVuBtdnGazooDWCaGHRglHgAlvBaJFv", URLEncoder.encode(vin.getUpc_no()));
+	apiURL=String.format("https://api.discogs.com//database/search?barcode=%s&format=vinyl&format=LP&token=" + API_Key, URLEncoder.encode(vin.getUpc_no()));
 	
 //	System.out.println("160");
 //	System.out.println(apiURL);
@@ -179,7 +183,7 @@ if (vin.getUpc_no().isEmpty() != true) {
 //	System.out.println(vin.getUpc_no().length());
 } 
 	else if (vin.getCat_no().isEmpty() == false) {
-	apiURL=String.format("https://api.discogs.com//database/search?catno=%s&format=vinyl&format=LP&token=ddnMsmSjfIVuBtdnGazooDWCaGHRglHgAlvBaJFv", URLEncoder.encode(vin.getCat_no()));
+	apiURL=String.format("https://api.discogs.com//database/search?catno=%s&format=vinyl&format=LP&token=" + API_Key, URLEncoder.encode(vin.getCat_no()));
 	
 //	System.out.println("163");
 //	System.out.println(vin.getCat_no());
@@ -187,11 +191,11 @@ if (vin.getUpc_no().isEmpty() != true) {
 	
 	} 
 		else {
-			apiURL=String.format("https://api.discogs.com//database/search?artist=%s&title=%s&format=vinyl&format=LP&token=ddnMsmSjfIVuBtdnGazooDWCaGHRglHgAlvBaJFv", URLEncoder.encode(vin.getArtist()), URLEncoder.encode(vin.getTitle()));
+			apiURL=String.format("https://api.discogs.com//database/search?artist=%s&title=%s&format=vinyl&format=LP&token=" + API_Key, URLEncoder.encode(vin.getArtist()), URLEncoder.encode(vin.getTitle()));
 			System.out.println("166");
 }
 	
-//String apiURL="https://api.discogs.com//database/search?q=0081227957841&token=ddnMsmSjfIVuBtdnGazooDWCaGHRglHgAlvBaJFv";
+//String apiURL="https://api.discogs.com//database/search?q=0081227957841&token=" + API_Key;
 HttpResponse<com.mashape.unirest.http.JsonNode> jsonResponse=Unirest.get(apiURL).asJson();
 JSONObject obj=jsonResponse.getBody().getObject();
 
@@ -246,8 +250,8 @@ public String searchbox (HttpSession session, String searchquery) {
 //	model.addAttribute("vinyls", vinyls.allVinyls());
 //	
 //	
-//	String apiURL="https://api.discogs.com//database/search?q=&token=ddnMsmSjfIVuBtdnGazooDWCaGHRglHgAlvBaJFv";
-//	String apiURL="https://api.discogs.com//database/search?q=the+dreaming&token=ddnMsmSjfIVuBtdnGazooDWCaGHRglHgAlvBaJFv&artist=Kate+Bush&format=LP";
+//	String apiURL="https://api.discogs.com//database/search?q=&token=" + API_Key;
+//	String apiURL="https://api.discogs.com//database/search?q=the+dreaming&token=" + API_Key + "&artist=Kate+Bush&format=LP";
 //	HttpResponse<com.mashape.unirest.http.JsonNode> jsonResponse=Unirest.get(apiURL).asJson();
 //	JSONObject obj=jsonResponse.getBody().getObject();
 //
