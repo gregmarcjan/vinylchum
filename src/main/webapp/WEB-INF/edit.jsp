@@ -9,7 +9,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Edit record entry</title>
+	<title>Vinyl Chum - edit record entry</title>
 	<link rel="stylesheet" href="/css/style.css"> 
 	<style>
         @import url('https://fonts.googleapis.com/css2?family=Cookie&family=Kavoon&family=Life+Savers:wght@700&family=Roboto:wght@100&display=swap');

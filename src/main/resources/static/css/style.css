@@ -258,7 +258,7 @@ input[type=submit]:active {
 .buttonrow {
  	min-width: 19rem;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-content: center;
  	padding-top: 10px;
  	padding-bottom: 10px;

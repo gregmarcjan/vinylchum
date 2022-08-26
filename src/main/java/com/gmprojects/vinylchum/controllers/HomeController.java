@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import com.gmprojects.vinylchum.models.LoginUser;
 import com.gmprojects.vinylchum.models.User;
 import com.gmprojects.vinylchum.models.Vinyl;
@@ -155,41 +157,39 @@ public String details(@PathVariable("id") Long id, Model model, HttpSession sess
 	String apiURL = "";
 	Vinyl vin = vinyls.findVinyl(id);
 	
-	System.out.println(id);
-	System.out.println(vin.getId());
-	System.out.println(vin.getArtist());
-	System.out.println(vin.getTitle());
-	System.out.println(vin.getYear());
-	System.out.println(vin.getLabel());
-	System.out.println(vin.getUpc_no());
-	System.out.println(vin.getCat_no());
-	System.out.println(vin.getNotes());
+//	System.out.println(id);
+//	System.out.println(vin.getId());
+//	System.out.println(vin.getArtist());
+//	System.out.println(vin.getTitle());
+//	System.out.println(vin.getYear());
+//	System.out.println(vin.getLabel());
+//	System.out.println(vin.getUpc_no());
+//	System.out.println(vin.getCat_no());
+//	System.out.println(vin.getNotes());
 	
 	
 if (vin.getUpc_no().isEmpty() != true) {
 	apiURL=String.format("https://api.discogs.com//database/search?barcode=%s&format=vinyl&format=LP&token=ddnMsmSjfIVuBtdnGazooDWCaGHRglHgAlvBaJFv", URLEncoder.encode(vin.getUpc_no()));
 	
-	System.out.println("160");
-	System.out.println(apiURL);
-	System.out.println(vin.toString());
-	System.out.println(vin.getUpc_no());
-	System.out.println(URLEncoder.encode(vin.getUpc_no()));
-	System.out.println(vin.getUpc_no().length());
+//	System.out.println("160");
+//	System.out.println(apiURL);
+//	System.out.println(vin.toString());
+//	System.out.println(vin.getUpc_no());
+//	System.out.println(URLEncoder.encode(vin.getUpc_no()));
+//	System.out.println(vin.getUpc_no().length());
 } 
 	else if (vin.getCat_no().isEmpty() == false) {
 	apiURL=String.format("https://api.discogs.com//database/search?catno=%s&format=vinyl&format=LP&token=ddnMsmSjfIVuBtdnGazooDWCaGHRglHgAlvBaJFv", URLEncoder.encode(vin.getCat_no()));
 	
-	System.out.println("163");
-	System.out.println(vin.getCat_no());
-	System.out.println(URLEncoder.encode(vin.getCat_no()));
+//	System.out.println("163");
+//	System.out.println(vin.getCat_no());
+//	System.out.println(URLEncoder.encode(vin.getCat_no()));
 	
 	} 
 		else {
 			apiURL=String.format("https://api.discogs.com//database/search?artist=%s&title=%s&format=vinyl&format=LP&token=ddnMsmSjfIVuBtdnGazooDWCaGHRglHgAlvBaJFv", URLEncoder.encode(vin.getArtist()), URLEncoder.encode(vin.getTitle()));
 			System.out.println("166");
 }
-
-
 	
 //String apiURL="https://api.discogs.com//database/search?q=0081227957841&token=ddnMsmSjfIVuBtdnGazooDWCaGHRglHgAlvBaJFv";
 HttpResponse<com.mashape.unirest.http.JsonNode> jsonResponse=Unirest.get(apiURL).asJson();
@@ -224,6 +224,47 @@ public String destroy(@PathVariable("id") Long id, HttpSession session) {
 		return "redirect:/main";
 
 }
+
+// SEARCH BOX ROUTE
+
+@GetMapping("/searchbox")
+public String searchbox (HttpSession session, String searchquery) {
+	if (session.getAttribute("userId") == null) {
+		return "redirect:/";
+		}
+	return "searchbox.jsp";
+}
+
+// FUTURE FEATURE -> SEARCH ROUTE
+
+//@GetMapping("/search")
+//public String search (HttpSession session, Model model) throws UnirestException {
+//	if (session.getAttribute("userId") == null) {
+//	return "redirect:/";
+//	}
+//	model.addAttribute("user", users.findById((Long)session.getAttribute("userId")));
+//	model.addAttribute("vinyls", vinyls.allVinyls());
+//	
+//	
+//	String apiURL="https://api.discogs.com//database/search?q=&token=ddnMsmSjfIVuBtdnGazooDWCaGHRglHgAlvBaJFv";
+//	String apiURL="https://api.discogs.com//database/search?q=the+dreaming&token=ddnMsmSjfIVuBtdnGazooDWCaGHRglHgAlvBaJFv&artist=Kate+Bush&format=LP";
+//	HttpResponse<com.mashape.unirest.http.JsonNode> jsonResponse=Unirest.get(apiURL).asJson();
+//	JSONObject obj=jsonResponse.getBody().getObject();
+//
+//	JSONArray jArray=obj.getJSONArray("results");
+//	ArrayList <JSONObject> results = new ArrayList <JSONObject>();
+//
+//	for (int i = 0; i<jArray.length(); i++) {
+//		results.add(jArray.getJSONObject(i));
+//		}
+//
+//	System.out.println(results.get(0).getString("title"));
+//	System.out.println(results.get(0).getString("year"));
+//	System.out.println(results.get(0).getString("country"));
+//	System.out.println(results.get(0));
+//
+//		return "search.jsp";
+//	}
 
 // LOGOUT ROUTE
 

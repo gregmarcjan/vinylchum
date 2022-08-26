@@ -8,7 +8,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Record Details</title>
+	<title>Vinyl Chum - record details</title>
 	<link rel="stylesheet" href="/css/style.css"> 
 	<style>
         @import url('https://fonts.googleapis.com/css2?family=Cookie&family=Kavoon&family=Life+Savers:wght@700&family=Roboto:wght@100&display=swap');
@@ -70,11 +70,10 @@
 				</table>
 			<div class="buttonrow">
 				<button onclick="window.location.href='/edit/${vinyl.id}';">Edit</button>
-				<button id="delete" onclick="window.location.href='/delete/${vinyl.id}';">Remove</button>
+				<button onclick="window.location.href='https://www.discogs.com/search/?q=${vinyl.artist}+${vinyl.title}';">Search</button>
 				<button onclick="window.location.href='/main';">Return</button>
 	       	</div>
 	</div>
-	<p class="register_line"><a href="/main">Return</a></p>
 </div>
 
 </body>

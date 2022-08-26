@@ -10,7 +10,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Vinyl Chum - your vinyl record library!</title>
+	<title>Vinyl Chum - search online</title>
 	<link rel="stylesheet" href="/css/style.css"> 
 	<style>
         @import url('https://fonts.googleapis.com/css2?family=Cookie&family=Kavoon&family=Life+Savers:wght@700&family=Roboto:wght@100&display=swap');
@@ -22,29 +22,30 @@
 		<div class="main_box">
 			<div class="main_nav">
 				<a id=nav1 href="/logout" style="float:left">logout</a>
-				<a href="/add" style="float:right">add a new record</a><br>	
-				<a id=nav1 href="/searchbox" style="float:right">search on Discogs.com</a>
+				<a href="/add" style="float:right">add a new record</a>
 			</div>
 			<h1>Welcome, <c:out value="${user.userName}"/>!</h1>
 			<p>Vinyl records on your shelf:</p>
 		</div>
+		
 		<table class="table2">
 			<tr>
-				<th>Artist</th>
-				<th>Title</th>
+				<th>Artist - Title</th>
 				<th>Year</th>
+				<th>Country</th>
 				<th>Label</th>
 				<th>Cat No.</th>
+				<th>Art</th>
 			</tr>
-			<c:forEach var="vinyl" items="${user.vinyls}">
+			<c:forEach var="lp" items="${results}">
 				<tr>
-					<td style="max-width: 275px"><c:out value="${vinyl.artist}"/></td>
-					<td style="max-width: 275px"><a style="font-size:1rem" href="vinyls/${vinyl.id}"><c:out value="${vinyl.title}"/></a></td>
-					<td style="max-width: 100px"><c:out value="${vinyl.year}"/></td>
-					<td style="max-width: 100px"><c:out value="${vinyl.label}"/></td>
-					<td style="max-width: 100px"><c:out value="${vinyl.cat_no}"/></td>
-					<td style="max-width: 50px"><a href="/edit/${vinyl.id}"><img alt="edit" title="Edit" src="/assets/pencil.png"></a></td>
-					<td style="max-width: 50px"><a href="/delete/${vinyl.id}" onclick="return confirm('${user.userName}, are you sure you want to delete ${vinyl.title}?')"><img alt="remove" role="button" title="Remove" src="/assets/delete.png"></a></td>
+					<td style="max-width: 400px">${lp.getString("title")}"></td>
+					<td style="max-width: 100px">${lp.getString("year")}"></td>
+					<td style="max-width: 100px">${lp.getString("country")}"></td>
+<%-- 					<td style="max-width: 100px">${lp.getString("label")}"></td> --%>
+<%-- 					<td style="max-width: 100px">${lp.getString("catno")}"></td> --%>
+					<td style="max-width: 50px"><img alt="edit" title="Edit" src="/assets/pencil.png"></td>
+					<td style="max-width: 50px"><img alt="remove" role="button" title="Remove" src="/assets/delete.png"></td>
 				</tr>
 			</c:forEach>
 		</table>

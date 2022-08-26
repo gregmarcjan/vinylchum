@@ -21,6 +21,7 @@
 <div class="container">
 	<div class="main_box">
 		<a href="/main">Back to Shelves</a>
+		<a href="/searchbox">Search on Discogs.com</a>
 		<h1>Add to your collection:</h1>	
 		<form:form action="/vinyls" modelAttribute="vinyl" class="form" method="post">
 		<table class="table1">
