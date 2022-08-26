@@ -26,7 +26,7 @@ Coming in Q4 of 2022:
 
 Contributions are always welcome!
 
-1) To get started, make sure set up your application.properties:
+1) To get started, make sure to set up your application.properties:
 
 spring.datasource.user = ... 
 spring.datasource.password = ...
@@ -35,6 +35,6 @@ spring.datasource.password = ...
 
 https://www.discogs.com/settings/developers
 
-3) Add your key to the API_Key variable in the MainController.java
+3) Add your key to the API_Key variable in the HomeController.java
 
 You are all set!
